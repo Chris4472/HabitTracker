@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,8 @@ Route::get('/dashboard', function () {
 Route::get('/calendar', function () {
     return Inertia::render('Calendar');
 })->middleware(['auth', 'verified'])->name('calendar');
+
+Route::get('events', [EventController::class, 'index']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
