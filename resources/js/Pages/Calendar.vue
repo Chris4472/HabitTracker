@@ -1,9 +1,11 @@
-<script>
+<script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
 import FullCalendar from '@fullcalendar/vue3';
 import dayGridPlugin from '@fullcalendar/daygrid';
+</script>
 
+<script>
 export default {
   components: {
     FullCalendar
@@ -16,7 +18,7 @@ export default {
         headerToolbar: {
           left: 'prev,next',
           center: 'title',
-          right: 'dayGridWeek,dayGridDay'
+          right: 'dayGridMonth,dayGridWeek,dayGridDay'
         }
       }
     }
@@ -40,4 +42,5 @@ export default {
             </div>
         </div>
     </AuthenticatedLayout>
+    
 </template>
