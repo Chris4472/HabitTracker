@@ -14,7 +14,7 @@ export default {
     return {
       calendarOptions: {
         plugins: [ dayGridPlugin ],
-        initialView: 'dayGridWeek',
+        initialView: 'dayGridMonth',
         headerToolbar: {
           left: 'prev,next',
           center: 'title',

@@ -35,6 +35,9 @@ const showingNavigationDropdown = ref(false);
                                 <NavLink :href="route('calendar')" :active="route().current('calendar')">
                                     Calendar
                                 </NavLink>
+                                <NavLink :href="route('events')" :active="route().current('events')">
+                                    Events
+                                </NavLink>
                             </div>
                         </div>
 

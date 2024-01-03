@@ -34,7 +34,11 @@ Route::get('/calendar', function () {
     return Inertia::render('Calendar');
 })->middleware(['auth', 'verified'])->name('calendar');
 
-Route::get('events', [EventController::class, 'index']);
+Route::get('/events', function () {
+    return Inertia::render('Events');
+})->middleware(['auth', 'verified'])->name('events');
+
+Route::get('events-list', [EventController::class, 'index'])->name('events.list.get');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
