@@ -16,12 +16,11 @@ const events = await axios.get(route('events.list.get'))
         </template>
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <li v-for="event in events.data.events">
+            <dt v-for="event in events.data.events" style="padding-top: 1em;">
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 text-gray-900 dark:text-gray-100"> {{ event.title }} </div>
+                    <div class="p-6 text-gray-900 dark:text-gray-100"><a> {{ event.title }} </a><a style="float: right;">Starts In: {{ event.timeDifference }} </a></div>
                 </div>
-            </li>
+            </dt>
         </div>
-        
     </AuthenticatedLayout>
 </template>
