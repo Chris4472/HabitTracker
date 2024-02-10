@@ -10,7 +10,7 @@ class EventController extends Controller
 {
     public function index(Request $request)
     {
-        $events = Event::get(['title','start']);
+        $events = Event::get(['title','start'])->where('start', '>' ,Carbon::now());
         
         foreach($events as $event) $event['timeDifference'] = $this->getTimeDifference($event['start']);
         
@@ -20,6 +20,11 @@ class EventController extends Controller
     private function getTimeDifference($startTime){
         $startTime = Carbon::parse($startTime);
 
-        return gmdate('H:i:s', Carbon::now()->diffInSeconds($startTime));
+        if($startTime->diffInHours(Carbon::now()) < 24){
+            return gmdate('H:i:s', Carbon::now()->diffInSeconds($startTime));
+        }
+        else{
+            return gmdate('d', Carbon::now()->diffInSeconds($startTime)) . " days";
+        }
     }
 }
